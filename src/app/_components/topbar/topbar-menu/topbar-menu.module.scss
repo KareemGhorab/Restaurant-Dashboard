@@ -1,0 +1,60 @@
+@use '@/styles/utils/flex' as *;
+
+.topbar-menu {
+	position: relative;
+
+	&::after {
+		content: '';
+		display: block;
+		width: 10px;
+		height: 6px;
+		background-color: var(--gray-light-30);
+		clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: -1;
+	}
+
+	select {
+		cursor: pointer;
+		width: 100%;
+		padding: var(--base-space) calc(var(--base-space) * 2);
+
+		&::selection {
+			border: none;
+		}
+
+		&:focus {
+			border: none;
+			outline: none;
+			outline-color: transparent;
+		}
+	}
+
+	section {
+		@include flex($direction: column);
+		background-color: var(--gray-light-20);
+		border-radius: var(--base-space);
+		padding: var(--base-space);
+		position: absolute;
+		width: 100%;
+
+		span {
+			padding: 0 calc(var(--base-space) * 0.5);
+
+			&.active {
+				background-color: var(--primary-color);
+				color: var(--white-color);
+			}
+
+			&:hover {
+				background-color: var(--primary-color);
+				color: var(--white-color);
+				border-radius: calc(var(--base-space) * 0.5);
+				cursor: pointer;
+			}
+		}
+	}
+}

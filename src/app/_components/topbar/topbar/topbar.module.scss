@@ -1,0 +1,37 @@
+@use '@/styles/utils/flex' as *;
+@use '@/styles/utils/break-points' as *;
+
+.topbar {
+	@include flex(
+		$direction: column,
+		$align: center,
+		$justify: center,
+		$gap: var(--base-space)
+	);
+
+	height: calc(var(--base-space) * 8);
+
+	$pad: calc(var(--base-space) * 5);
+	padding: {
+		left: $pad;
+		right: $pad;
+	}
+
+	@include screen-min-mobile {
+		@include flex($direction: row, $align: center, $justify: space-between);
+	}
+
+	h2 {
+		font-size: 14px;
+		font-weight: 400;
+
+		@include screen-min-mobile {
+			font-size: 18px;
+		}
+
+		mark {
+			font-weight: 600;
+			color: var(--primary-color);
+		}
+	}
+}
